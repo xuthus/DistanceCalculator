@@ -1,0 +1,22 @@
+{
+  "timeZone": "Europe/Moscow",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "sheets": {
+    "macros": [
+      {
+        "menuName": "AddToJournal",
+        "functionName": "AddToJournal"
+      },
+      {
+        "menuName": "Untitled Macro",
+        "functionName": "UntitledMacro"
+      },
+      {
+        "menuName": "pdf2",
+        "functionName": "pdf2"
+      }
+    ]
+  }
+}

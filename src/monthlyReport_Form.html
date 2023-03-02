@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <style>
+    p,
+    form,
+    select,
+    option,
+    button,
+    input {
+      font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22px;
+    }
+
+    div#buttons {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    div#date {
+      margin-left: 10px;
+      margin-bottom: 100px;
+    }
+  </style>
+</head>
+
+<body onload="onLoad();">
+  <p>Choose date range</p>
+
+  <p>
+  <form id="MonthForm">
+    <div id="date">
+      <select id="month" name="month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <select id="year" name="year">
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+        <option value="2031">2031</option>
+        <option value="2032">2032</option>
+        <option value="2033">2033</option>
+      </select>
+    </div>
+    <hr />
+    <div id="buttons">
+      <input type="button" value=" Generate " onclick="sendForm()" />
+      <input type="button" value=" Cancel " onclick="google.script.host.close()" />
+    </div>
+  </form>
+  </p>
+
+  <script>
+    function onLoad() {
+      let date = new Date();
+      document.getElementById("month").value = date.getMonth() + 1;
+      document.getElementById("year").value = date.getFullYear();
+    }
+
+    function success(msg) {
+      alert(msg);
+      google.script.host.close();
+    }
+
+    function sendForm() {
+      var form = document.getElementById("MonthForm").elements;
+      var obj = {};
+      for (var i = 0; i < form.length; i++) {
+        var item = form.item(i);
+        if (item.name) {
+          obj[item.name] = item.value;
+        }
+      }
+      google.script.run.withSuccessHandler(success).monthlyReport_Handler(obj['month'], obj['year'], false);
+    }  
+  </script>
+</body>
+
+</html>
