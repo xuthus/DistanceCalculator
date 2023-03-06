@@ -1,4 +1,14 @@
 /**
+ * how many days between two dates
+ * @param {Date} first 
+ * @param {Date} second 
+ * @returns {number}
+ */
+function dateDiff(first, second) {        
+    return Math.round((second - first) / (1000 * 60 * 60 * 24));
+}
+
+/**
 * calculates pow2 of num
 * @param {number} num 
 * @returns num*num

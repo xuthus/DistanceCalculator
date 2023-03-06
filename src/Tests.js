@@ -1,6 +1,12 @@
 function suite_Tests() {
+  testDateDiff();
   testRoundDistanceAndTime();
   testNearestDistance();
+}
+
+function testDateDiff() {
+  assertEquals(3, dateDiff(new Date(2023, 0, 1), new Date(2023, 0, 4)));
+  assertEquals(5, dateDiff(new Date(2020, 1, 27), new Date(2020, 2, 3)));
 }
 
 function testSettings() {

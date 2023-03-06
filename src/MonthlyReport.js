@@ -152,6 +152,10 @@ class ReportData {
      * @type {{Object.<number, MonthAgg>}}
      */
     this.monthAggs = {};
+    /**
+     * @type {number}
+     */
+    this.maxVdot30 = 0;
   }
 }
 
@@ -180,6 +184,9 @@ function gatherReportData(month, year) {
     }
     let dt = roundDistanceAndTime(distance_km * 1000, durationMs / 1000 / 3600);
     let vdot = values[row][4];
+    if (dateDiff(date, new Date()) < 31) {
+      data.maxVdot30 = Math.max(data.maxVdot30, vdot);
+    }
     if (date.getMonth() == month - 1 && date.getFullYear() == year) {
       data.totals.count++;
       data.totals.distance += distance_km;
@@ -243,8 +250,8 @@ function gatherReportData(month, year) {
   data.averages.VDOT = vdotSum / data.totals.count;
   data.averagesYear.VDOT = vdotSumYear / data.totalsYear.count;
 
-  data.fitnessState.marathon = vdotToTime(42195, data.bests.VDOT.value);
-  data.fitnessState.halfMarathon = vdotToTime(21097.5, data.bests.VDOT.value);
+  data.fitnessState.marathon = vdotToTime(42195, data.maxVdot30);
+  data.fitnessState.halfMarathon = vdotToTime(21097.5, data.maxVdot30);
   return data;
 }
 
