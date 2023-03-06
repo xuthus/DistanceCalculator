@@ -2,6 +2,11 @@ function suite_Tests() {
   testDateDiff();
   testRoundDistanceAndTime();
   testNearestDistance();
+  testSettings();
+  testVdot2();
+  testVdotToTime();
+  testFormatSeconds();
+  testVelocityToTempo();
 }
 
 function testDateDiff() {
@@ -47,10 +52,10 @@ function testVdotToTime() {
 }
 
 function testFormatSeconds() {
-  assertEquals('01:40', formatSeconds(100));
-  assertEquals('05:40', formatSeconds(340));
-  assertEquals('00:40', formatSeconds(40));
-  assertEquals('00:04', formatSeconds(4));
+  assertEquals('0:01:40', formatSeconds(100));
+  assertEquals('0:05:40', formatSeconds(340));
+  assertEquals('0:00:40', formatSeconds(40));
+  assertEquals('0:00:04', formatSeconds(4));
 
 }
 

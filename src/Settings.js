@@ -12,7 +12,7 @@ class Settings {
      * @param {SpreadsheetApp.Sheet} settingsSheet 
      */
     constructor(settingsSheet) {
-        let params = loadParams(settingsSheet);
+        let params = this.loadParams(settingsSheet);
         /**
          * @type {string}
          */
@@ -25,6 +25,18 @@ class Settings {
          * @type {string}
          */
         this.testValue = params['testValue'];
+        /**
+         * @type {Date}
+         */
+        this.userBirthDate = params['userBirthDate'];
+        /**
+         * @type {string}
+         */
+        this.userGender = params['userGender'];
+        /**
+         * @type {number}
+         */
+        this.userWeight = params['userWeight'];
     }
 
     /**
