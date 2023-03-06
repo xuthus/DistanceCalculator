@@ -286,7 +286,9 @@ function fillReportData(re, data) {
 
   row = re.putSection(data.sheet, 'totals');
   data.sheet.getRange(row + 1, 1).setValue(shortMonthName(data.month) + ' ' + data.year);
+  data.sheet.getRange(row + 1, 5).setValue(shortMonthName(data.month) + ' ' + data.year);
   data.sheet.getRange(row + 1, 2).setValue('All ' + data.year);
+  data.sheet.getRange(row + 1, 4).setValue('All ' + data.year);
   data.sheet.getRange(row + 2, 1).setValue(round(data.totals.distance, 1) + ' km');
   data.sheet.getRange(row + 2, 2).setValue(round(data.totalsYear.distance, 1) + ' km');
   data.sheet.getRange(row + 4, 1).setValue(msecsToHHMM(data.totals.time) + ' h');
