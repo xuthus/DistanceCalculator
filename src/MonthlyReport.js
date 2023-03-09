@@ -463,12 +463,12 @@ class MonthAgg {
   }
 
   vdot() {
-    let sum = 0;
+    let max = 0;
     for (let i in this.races) {
       let race = this.races[i];
-      sum += vdot2(race.meters, race.hours);
+      max = Math.max(max, vdot2(race.meters, race.hours));
     }
-    return sum / this.races.length;
+    return max;
   }
 
 }

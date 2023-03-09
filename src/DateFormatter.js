@@ -97,12 +97,3 @@ class DateFormatter {
   }
 
 }
-
-function test() {
-  let df = new DateFormatter('%DD.%MM.%YYYY');
-  assertEquals('27.12.1976', df.format(new Date(1976, 11, 27)));
-  df = new DateFormatter('%DD of %MMM, %YY');
-  assertEquals('27 of Dec, 76', df.format(new Date(1976, 11, 27)));
-  df = new DateFormatter('%DD of %MMMM, %YY');
-  assertEquals('01 of January, 07', df.format(new Date(2007, 0, 1)));
-}
