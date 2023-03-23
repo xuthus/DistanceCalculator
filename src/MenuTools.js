@@ -7,8 +7,7 @@ function onOpen() {
     .addItem('💾 Save training to journal', 'miAddToJournalClick')
     .addItem('💪 Update Bests panel', 'updateBestsPanel')
     .addSeparator()
-    .addSubMenu(ui.createMenu('📚 Reports')
-      .addItem('📅 Monthly Report', 'monthlyReport_Form'))
+    .addItem('📚 Monthly Report', 'monthlyReport_Form')
     .addToUi();
 }
 

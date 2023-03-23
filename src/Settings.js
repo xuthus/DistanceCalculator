@@ -37,6 +37,9 @@ class Settings {
          * @type {number}
          */
         this.userWeight = params['userWeight'];
+        this.weatherApiKey = params['weatherApiKey'];
+        this.weatherLocation1 = params['weatherLocation1'];
+        this.weatherLocation2 = params['weatherLocation2'];
     }
 
     /**
