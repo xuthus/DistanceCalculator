@@ -16,7 +16,7 @@ function miAddToJournalClick() {
   try {
     addToJournal();
     updateBestsPanel();
-    
+
     SpreadsheetApp.getActive().toast('✔️ The training data saved to journal');
     SpreadsheetApp.getUi().alert('The training data saved to journal');
   } catch (e) {
