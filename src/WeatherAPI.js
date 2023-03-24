@@ -10,8 +10,10 @@ function updateWeatherForecast() {
   let w = api.fetchForecast();
   let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Время');
   let row = 4;
+  let df = new DateFormatter('%DD.%MM');
   w.forEach(day => {
-    sheet.getRange(row, 12).setValue(`${getWeekDay(new Date(day.date))} ${day.date}`);
+    let date = new Date(day.date);
+    sheet.getRange(row, 12).setValue(`${getWeekDay(date)}, ${df.format(date)}`);
     sheet.getRange(row, 13).setValue(`${day.temp} °`);
     sheet.getRange(row, 14).setValue(day.conditionIcon);
     row++;
@@ -21,7 +23,8 @@ function updateWeatherForecast() {
   w = api.fetchForecast();
   row = 13;
   w.forEach(day => {
-    sheet.getRange(row, 12).setValue(`${getWeekDay(new Date(day.date))} ${day.date}`);
+    let date = new Date(day.date);
+    sheet.getRange(row, 12).setValue(`${getWeekDay(date)}, ${df.format(date)}`);
     sheet.getRange(row, 13).setValue(`${day.temp} °`);
     sheet.getRange(row, 14).setValue(day.conditionIcon);
     row++;

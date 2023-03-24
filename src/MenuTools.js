@@ -6,6 +6,7 @@ function onOpen() {
   ui.createMenu('🏃‍♂️ Calculator')
     .addItem('💾 Save training to journal', 'miAddToJournalClick')
     .addItem('💪 Update Bests panel', 'updateBestsPanel')
+    .addItem('⛅ Update Weather Forecast', 'updateWeatherForecast')
     .addSeparator()
     .addItem('📚 Monthly Report', 'monthlyReport_Form')
     .addToUi();
